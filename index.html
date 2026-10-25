@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#071b2b" />
+    <meta name="description" content="Kenangan di tepi laut — surat kecil yang dibaca perlahan." />
+    <title>Kenangan di Tepi Laut</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div id="stars" aria-hidden="true"></div>
+    <div id="shooting" aria-hidden="true"></div>
+    <button class="moon" id="moon" type="button" aria-label="Bulan, ketuk untuk membuat permohonan"><i></i><i></i><i></i></button>
+
+    <canvas id="snowBack" class="snow back" aria-hidden="true"></canvas>
+    <div id="floaters" aria-hidden="true"></div>
+
+    <div class="sea" id="sea" aria-hidden="true">
+      <svg class="wave w3" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60 C100 30 200 30 300 60 S500 90 600 60 S800 30 900 60 S1100 90 1200 60 V120 H0 Z"/></svg>
+      <svg class="wave w2" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60 C100 30 200 30 300 60 S500 90 600 60 S800 30 900 60 S1100 90 1200 60 V120 H0 Z"/></svg>
+      <div class="boat" id="boat">
+        <div class="boat-bob">
+          <svg viewBox="0 0 60 44" width="46" height="34">
+            <path d="M30 3 V24" stroke="#cfe6ee" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M30 4 L30 23 H9 Z" fill="#eaf5f8"/>
+            <path d="M32 9 L51 23 H32 Z" fill="#a9c9d6"/>
+            <path d="M3 25 H57 L48 38 H12 Z" fill="#f4fafc"/>
+            <path d="M3 25 H57 L55 28 H5 Z" fill="#9ac7d7"/>
+            <path d="M30 4 L38 6.5 L30 9 Z" fill="#ff9fb4"/>
+          </svg>
+        </div>
+      </div>
+      <svg class="wave w1" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path class="fill" d="M0 60 C100 30 200 30 300 60 S500 90 600 60 S800 30 900 60 S1100 90 1200 60 V120 H0 Z"/>
+        <path class="foam" d="M0 60 C100 30 200 30 300 60 S500 90 600 60 S800 30 900 60 S1100 90 1200 60" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+
+    <div class="progress"><span id="bar"></span></div>
+    <button class="music" id="music" type="button" aria-label="Putar musik">♪</button>
+    <audio id="audio" src="assets/song.mp3" loop preload="auto" autoplay playsinline></audio>
+
+    <main id="stage"></main>
+
+    <canvas id="snowFront" class="snow front" aria-hidden="true"></canvas>
+
+    <div class="mascot-wrap" id="mascotWrap">
+      <div class="bubble" id="bubble" role="status" aria-live="polite"></div>
+      <button class="mascot" id="mascot" type="button" aria-label="Pipi si penguin, ketuk untuk menyapa">
+        <svg viewBox="0 0 64 82" width="64" height="82" aria-hidden="true">
+          <ellipse cx="32" cy="78" rx="30" ry="4.5" fill="#cfe6ee" opacity=".9"/>
+          <ellipse cx="32" cy="78" rx="22" ry="2.5" fill="#fff" opacity=".6"/>
+          <g class="peng">
+            <ellipse cx="24" cy="75" rx="6" ry="2.8" fill="#f2b45f"/>
+            <ellipse cx="40" cy="75" rx="6" ry="2.8" fill="#f2b45f"/>
+            <ellipse cx="13" cy="52" rx="5.5" ry="13" fill="#0f2c3f" transform="rotate(16 13 52)"/>
+            <g class="flap"><ellipse cx="51" cy="52" rx="5.5" ry="13" fill="#0f2c3f" transform="rotate(-16 51 52)"/></g>
+            <ellipse cx="32" cy="49" rx="21" ry="25.5" fill="#12354a"/>
+            <ellipse cx="32" cy="59" rx="12.5" ry="15" fill="#eaf5f8"/>
+            <circle cx="25" cy="35" r="4.4" fill="#fff"/>
+            <circle cx="39" cy="35" r="4.4" fill="#fff"/>
+            <g class="eyes">
+              <circle cx="25.6" cy="35.6" r="2.3" fill="#0a1d2a"/>
+              <circle cx="39.6" cy="35.6" r="2.3" fill="#0a1d2a"/>
+              <circle cx="26.3" cy="34.7" r=".8" fill="#fff"/>
+              <circle cx="40.3" cy="34.7" r=".8" fill="#fff"/>
+            </g>
+            <circle cx="19.5" cy="42.5" r="3" fill="#ff9fb4" opacity=".55"/>
+            <circle cx="44.5" cy="42.5" r="3" fill="#ff9fb4" opacity=".55"/>
+            <path d="M28.5 40 Q32 37.5 35.5 40 Q32 45.5 28.5 40Z" fill="#f2b45f"/>
+            <path d="M12 49 Q32 58 52 49 L52 54.5 Q32 63.5 12 54.5Z" fill="#9ac7d7"/>
+            <path d="M14 51 Q32 59.5 50 51" stroke="#e8f3f7" stroke-width="1.4" fill="none" opacity=".7"/>
+            <rect x="40" y="53" width="6.5" height="13" rx="2.5" fill="#7fb2c5"/>
+            <path d="M13 28 Q13 9 32 9 Q51 9 51 28 Q32 23 13 28Z" fill="#5596ad"/>
+            <path d="M13 28 Q32 23 51 28 L51 32 Q32 27 13 32Z" fill="#eaf5f8"/>
+            <circle cx="32" cy="7.5" r="5" fill="#fff"/>
+          </g>
+        </svg>
+      </button>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
